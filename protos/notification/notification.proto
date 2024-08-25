@@ -38,5 +38,5 @@ message GetNotificationRes {
 }
 message AddNotificationReq {
   string user_id = 1;
-  Notification notifications = 2;
+  Message messages =2;
 }
