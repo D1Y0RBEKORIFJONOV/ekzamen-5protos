@@ -40,7 +40,7 @@ message GetNotificationReq {
 }
 
 message GetNotificationRes {
-  Notification notification = 1;
+  repeated  Message messages = 1;
 }
 message AddNotificationReq {
   string user_id = 1;
