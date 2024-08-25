@@ -83,6 +83,61 @@ func (x *Message) GetStatus() string {
 	return ""
 }
 
+type CreateMessage struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	SenderName string `protobuf:"bytes,2,opt,name=sender_name,json=senderName,proto3" json:"sender_name,omitempty"`
+	Status     string `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+}
+
+func (x *CreateMessage) Reset() {
+	*x = CreateMessage{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_notification_notification_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreateMessage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateMessage) ProtoMessage() {}
+
+func (x *CreateMessage) ProtoReflect() protoreflect.Message {
+	mi := &file_notification_notification_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateMessage.ProtoReflect.Descriptor instead.
+func (*CreateMessage) Descriptor() ([]byte, []int) {
+	return file_notification_notification_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CreateMessage) GetSenderName() string {
+	if x != nil {
+		return x.SenderName
+	}
+	return ""
+}
+
+func (x *CreateMessage) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
 type CreateNotificationReq struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -94,7 +149,7 @@ type CreateNotificationReq struct {
 func (x *CreateNotificationReq) Reset() {
 	*x = CreateNotificationReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_notification_notification_proto_msgTypes[1]
+		mi := &file_notification_notification_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -107,7 +162,7 @@ func (x *CreateNotificationReq) String() string {
 func (*CreateNotificationReq) ProtoMessage() {}
 
 func (x *CreateNotificationReq) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_notification_proto_msgTypes[1]
+	mi := &file_notification_notification_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -120,7 +175,7 @@ func (x *CreateNotificationReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateNotificationReq.ProtoReflect.Descriptor instead.
 func (*CreateNotificationReq) Descriptor() ([]byte, []int) {
-	return file_notification_notification_proto_rawDescGZIP(), []int{1}
+	return file_notification_notification_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CreateNotificationReq) GetUserId() string {
@@ -143,7 +198,7 @@ type Notification struct {
 func (x *Notification) Reset() {
 	*x = Notification{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_notification_notification_proto_msgTypes[2]
+		mi := &file_notification_notification_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -156,7 +211,7 @@ func (x *Notification) String() string {
 func (*Notification) ProtoMessage() {}
 
 func (x *Notification) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_notification_proto_msgTypes[2]
+	mi := &file_notification_notification_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -169,7 +224,7 @@ func (x *Notification) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Notification.ProtoReflect.Descriptor instead.
 func (*Notification) Descriptor() ([]byte, []int) {
-	return file_notification_notification_proto_rawDescGZIP(), []int{2}
+	return file_notification_notification_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Notification) GetUserId() string {
@@ -202,7 +257,7 @@ type EmptyMessage struct {
 func (x *EmptyMessage) Reset() {
 	*x = EmptyMessage{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_notification_notification_proto_msgTypes[3]
+		mi := &file_notification_notification_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -215,7 +270,7 @@ func (x *EmptyMessage) String() string {
 func (*EmptyMessage) ProtoMessage() {}
 
 func (x *EmptyMessage) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_notification_proto_msgTypes[3]
+	mi := &file_notification_notification_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -228,7 +283,7 @@ func (x *EmptyMessage) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EmptyMessage.ProtoReflect.Descriptor instead.
 func (*EmptyMessage) Descriptor() ([]byte, []int) {
-	return file_notification_notification_proto_rawDescGZIP(), []int{3}
+	return file_notification_notification_proto_rawDescGZIP(), []int{4}
 }
 
 type GetNotificationReq struct {
@@ -243,7 +298,7 @@ type GetNotificationReq struct {
 func (x *GetNotificationReq) Reset() {
 	*x = GetNotificationReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_notification_notification_proto_msgTypes[4]
+		mi := &file_notification_notification_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -256,7 +311,7 @@ func (x *GetNotificationReq) String() string {
 func (*GetNotificationReq) ProtoMessage() {}
 
 func (x *GetNotificationReq) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_notification_proto_msgTypes[4]
+	mi := &file_notification_notification_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -269,7 +324,7 @@ func (x *GetNotificationReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNotificationReq.ProtoReflect.Descriptor instead.
 func (*GetNotificationReq) Descriptor() ([]byte, []int) {
-	return file_notification_notification_proto_rawDescGZIP(), []int{4}
+	return file_notification_notification_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetNotificationReq) GetUserId() string {
@@ -297,7 +352,7 @@ type GetNotificationRes struct {
 func (x *GetNotificationRes) Reset() {
 	*x = GetNotificationRes{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_notification_notification_proto_msgTypes[5]
+		mi := &file_notification_notification_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -310,7 +365,7 @@ func (x *GetNotificationRes) String() string {
 func (*GetNotificationRes) ProtoMessage() {}
 
 func (x *GetNotificationRes) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_notification_proto_msgTypes[5]
+	mi := &file_notification_notification_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -323,7 +378,7 @@ func (x *GetNotificationRes) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNotificationRes.ProtoReflect.Descriptor instead.
 func (*GetNotificationRes) Descriptor() ([]byte, []int) {
-	return file_notification_notification_proto_rawDescGZIP(), []int{5}
+	return file_notification_notification_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetNotificationRes) GetNotification() *Notification {
@@ -338,14 +393,14 @@ type AddNotificationReq struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	UserId   string   `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	Messages *Message `protobuf:"bytes,2,opt,name=messages,proto3" json:"messages,omitempty"`
+	UserId   string         `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	Messages *CreateMessage `protobuf:"bytes,2,opt,name=messages,proto3" json:"messages,omitempty"`
 }
 
 func (x *AddNotificationReq) Reset() {
 	*x = AddNotificationReq{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_notification_notification_proto_msgTypes[6]
+		mi := &file_notification_notification_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -358,7 +413,7 @@ func (x *AddNotificationReq) String() string {
 func (*AddNotificationReq) ProtoMessage() {}
 
 func (x *AddNotificationReq) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_notification_proto_msgTypes[6]
+	mi := &file_notification_notification_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -371,7 +426,7 @@ func (x *AddNotificationReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddNotificationReq.ProtoReflect.Descriptor instead.
 func (*AddNotificationReq) Descriptor() ([]byte, []int) {
-	return file_notification_notification_proto_rawDescGZIP(), []int{6}
+	return file_notification_notification_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *AddNotificationReq) GetUserId() string {
@@ -381,7 +436,7 @@ func (x *AddNotificationReq) GetUserId() string {
 	return ""
 }
 
-func (x *AddNotificationReq) GetMessages() *Message {
+func (x *AddNotificationReq) GetMessages() *CreateMessage {
 	if x != nil {
 		return x.Messages
 	}
@@ -399,31 +454,36 @@ var file_notification_notification_proto_rawDesc = []byte{
 	0x65, 0x6e, 0x64, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
 	0x52, 0x0a, 0x73, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06,
 	0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x73, 0x74,
-	0x61, 0x74, 0x75, 0x73, 0x22, 0x30, 0x0a, 0x15, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4e, 0x6f,
+	0x61, 0x74, 0x75, 0x73, 0x22, 0x48, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x73, 0x65, 0x6e, 0x64, 0x65, 0x72, 0x5f,
+	0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x73, 0x65, 0x6e, 0x64,
+	0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x30,
+	0x0a, 0x15, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f,
+	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64,
+	0x22, 0x65, 0x0a, 0x0c, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x6f, 0x66, 0x66,
+	0x73, 0x65, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65,
+	0x74, 0x12, 0x24, 0x0a, 0x08, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x18, 0x03, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x08, 0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x08, 0x6d,
+	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x22, 0x0e, 0x0a, 0x0c, 0x45, 0x6d, 0x70, 0x74, 0x79,
+	0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x45, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x4e, 0x6f,
 	0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x12, 0x17, 0x0a,
 	0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
-	0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x22, 0x65, 0x0a, 0x0c, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69,
-	0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69,
-	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12,
-	0x16, 0x0a, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52,
-	0x06, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x12, 0x24, 0x0a, 0x08, 0x6d, 0x65, 0x73, 0x73, 0x61,
-	0x67, 0x65, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x08, 0x2e, 0x4d, 0x65, 0x73, 0x73,
-	0x61, 0x67, 0x65, 0x52, 0x08, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x22, 0x0e, 0x0a,
-	0x0c, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x45, 0x0a,
-	0x12, 0x47, 0x65, 0x74, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e,
-	0x52, 0x65, 0x71, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x16, 0x0a, 0x06,
-	0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x6f, 0x66,
-	0x66, 0x73, 0x65, 0x74, 0x22, 0x47, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x4e, 0x6f, 0x74, 0x69, 0x66,
-	0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x12, 0x31, 0x0a, 0x0c, 0x6e, 0x6f,
-	0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
-	0x32, 0x0d, 0x2e, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52,
-	0x0c, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x53, 0x0a,
-	0x12, 0x41, 0x64, 0x64, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e,
-	0x52, 0x65, 0x71, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x24, 0x0a, 0x08,
-	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x08,
-	0x2e, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x08, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
+	0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x6f, 0x66, 0x66, 0x73, 0x65, 0x74, 0x22, 0x47,
+	0x0a, 0x12, 0x47, 0x65, 0x74, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x52, 0x65, 0x73, 0x12, 0x31, 0x0a, 0x0c, 0x6e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0d, 0x2e, 0x4e, 0x6f, 0x74,
+	0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x0c, 0x6e, 0x6f, 0x74, 0x69, 0x66,
+	0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x59, 0x0a, 0x12, 0x41, 0x64, 0x64, 0x4e, 0x6f,
+	0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x12, 0x17, 0x0a,
+	0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
+	0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x2a, 0x0a, 0x08, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
+	0x65, 0x73, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74,
+	0x65, 0x4d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x52, 0x08, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
 	0x65, 0x73, 0x32, 0xc6, 0x01, 0x0a, 0x13, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74,
 	0x69, 0x6f, 0x6e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3b, 0x0a, 0x12, 0x43, 0x72,
 	0x65, 0x61, 0x74, 0x65, 0x4e, 0x6f, 0x74, 0x69, 0x66, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e,
@@ -454,26 +514,27 @@ func file_notification_notification_proto_rawDescGZIP() []byte {
 	return file_notification_notification_proto_rawDescData
 }
 
-var file_notification_notification_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_notification_notification_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_notification_notification_proto_goTypes = []any{
 	(*Message)(nil),               // 0: Message
-	(*CreateNotificationReq)(nil), // 1: CreateNotificationReq
-	(*Notification)(nil),          // 2: Notification
-	(*EmptyMessage)(nil),          // 3: EmptyMessage
-	(*GetNotificationReq)(nil),    // 4: GetNotificationReq
-	(*GetNotificationRes)(nil),    // 5: GetNotificationRes
-	(*AddNotificationReq)(nil),    // 6: AddNotificationReq
+	(*CreateMessage)(nil),         // 1: CreateMessage
+	(*CreateNotificationReq)(nil), // 2: CreateNotificationReq
+	(*Notification)(nil),          // 3: Notification
+	(*EmptyMessage)(nil),          // 4: EmptyMessage
+	(*GetNotificationReq)(nil),    // 5: GetNotificationReq
+	(*GetNotificationRes)(nil),    // 6: GetNotificationRes
+	(*AddNotificationReq)(nil),    // 7: AddNotificationReq
 }
 var file_notification_notification_proto_depIdxs = []int32{
 	0, // 0: Notification.messages:type_name -> Message
-	2, // 1: GetNotificationRes.notification:type_name -> Notification
-	0, // 2: AddNotificationReq.messages:type_name -> Message
-	1, // 3: NotificationService.CreateNotification:input_type -> CreateNotificationReq
-	4, // 4: NotificationService.GetNotification:input_type -> GetNotificationReq
-	6, // 5: NotificationService.AddNotification:input_type -> AddNotificationReq
-	3, // 6: NotificationService.CreateNotification:output_type -> EmptyMessage
-	5, // 7: NotificationService.GetNotification:output_type -> GetNotificationRes
-	3, // 8: NotificationService.AddNotification:output_type -> EmptyMessage
+	3, // 1: GetNotificationRes.notification:type_name -> Notification
+	1, // 2: AddNotificationReq.messages:type_name -> CreateMessage
+	2, // 3: NotificationService.CreateNotification:input_type -> CreateNotificationReq
+	5, // 4: NotificationService.GetNotification:input_type -> GetNotificationReq
+	7, // 5: NotificationService.AddNotification:input_type -> AddNotificationReq
+	4, // 6: NotificationService.CreateNotification:output_type -> EmptyMessage
+	6, // 7: NotificationService.GetNotification:output_type -> GetNotificationRes
+	4, // 8: NotificationService.AddNotification:output_type -> EmptyMessage
 	6, // [6:9] is the sub-list for method output_type
 	3, // [3:6] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
@@ -500,7 +561,7 @@ func file_notification_notification_proto_init() {
 			}
 		}
 		file_notification_notification_proto_msgTypes[1].Exporter = func(v any, i int) any {
-			switch v := v.(*CreateNotificationReq); i {
+			switch v := v.(*CreateMessage); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -512,7 +573,7 @@ func file_notification_notification_proto_init() {
 			}
 		}
 		file_notification_notification_proto_msgTypes[2].Exporter = func(v any, i int) any {
-			switch v := v.(*Notification); i {
+			switch v := v.(*CreateNotificationReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -524,7 +585,7 @@ func file_notification_notification_proto_init() {
 			}
 		}
 		file_notification_notification_proto_msgTypes[3].Exporter = func(v any, i int) any {
-			switch v := v.(*EmptyMessage); i {
+			switch v := v.(*Notification); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -536,7 +597,7 @@ func file_notification_notification_proto_init() {
 			}
 		}
 		file_notification_notification_proto_msgTypes[4].Exporter = func(v any, i int) any {
-			switch v := v.(*GetNotificationReq); i {
+			switch v := v.(*EmptyMessage); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -548,7 +609,7 @@ func file_notification_notification_proto_init() {
 			}
 		}
 		file_notification_notification_proto_msgTypes[5].Exporter = func(v any, i int) any {
-			switch v := v.(*GetNotificationRes); i {
+			switch v := v.(*GetNotificationReq); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -560,6 +621,18 @@ func file_notification_notification_proto_init() {
 			}
 		}
 		file_notification_notification_proto_msgTypes[6].Exporter = func(v any, i int) any {
+			switch v := v.(*GetNotificationRes); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_notification_notification_proto_msgTypes[7].Exporter = func(v any, i int) any {
 			switch v := v.(*AddNotificationReq); i {
 			case 0:
 				return &v.state
@@ -578,7 +651,7 @@ func file_notification_notification_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_notification_notification_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

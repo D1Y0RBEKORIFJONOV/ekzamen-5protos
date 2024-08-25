@@ -15,6 +15,11 @@ message Message {
   string status = 3;
 }
 
+message CreateMessage {
+  string sender_name = 2;
+  string status = 3;
+}
+
 message CreateNotificationReq {
   string user_id = 1;
 }
@@ -39,5 +44,5 @@ message GetNotificationRes {
 }
 message AddNotificationReq {
   string user_id = 1;
-  Message messages =2;
+  CreateMessage messages =2;
 }
