@@ -12,6 +12,7 @@ service NotificationService{
 message Message {
   string created_at = 1;
   string sender_name = 2;
+  string status = 3;
 }
 
 message CreateNotificationReq {
