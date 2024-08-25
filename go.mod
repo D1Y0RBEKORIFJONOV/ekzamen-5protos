@@ -1,4 +1,4 @@
-module ekzamen_5/5-oy-ekzamen-protos
+module github.com/D1Y0RBEKORIFJONOV/ekzamen-5protos
 
 go 1.23.0
 
