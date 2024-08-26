@@ -12,7 +12,8 @@ service NotificationService{
 
 message SendEmailNotificationReq {
   string email = 1;
-  string notification = 2;
+  string sender_name = 2;
+  string notification = 3;
 }
 
 message SendEmailNotificationRes {
