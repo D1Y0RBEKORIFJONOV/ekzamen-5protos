@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+
+option go_package = "diyorbek.hotel.v1;hotelpb";
+
+service HotelService{
+  rpc CreateHotelService(CreateHotelServiceReq) returns (CreateHotelServiceRes);
+  rpc GetHotels(GetAllHotelsReq) returns (GetAllHotelRes);
+  rpc GetHotelsRooms(GetHotelsRoomsReq) returns (GetHotelsRoomsRes);
+  rpc AddRoomToHotels(AddRoomToHotelsReq) returns (AddRoomToHotelsRes);
+  rpc UpdateHotel(UpdateHotelReq) returns (UpdateHotelRes);
+  rpc UpdateHotelsRoom(UpdateHotelsRoomReq) returns (UpdateHotelsRoomRes);
+  rpc BookingRoom(BookingRoomReq) returns (BookingRoomRes);
+  rpc DeleteHotel(DeleteHotelReq) returns (DeleteHotelRes);
+  rpc DeleteHotelRooms(DeleteHotelRoomsReq) returns (DeleteHotelRoomsRes);
+}
+
+
+
+message Hotel {
+  string hotel_id = 1;
+  string name = 2;
+  string location = 3;
+  string rating = 4;
+  string address = 5;
+  repeated Room rooms = 6;
+}
+
+message Room {
+  string room_id = 1;
+  string roomType = 2;
+  string pricePerNight = 3;
+  string availability = 4;
+  bool   room_is_busy = 5;
+}
+message CreateHotelServiceReq {
+  string name = 1;
+  string location = 2;
+  string rating = 3;
+  string address = 4;
+}
+
+message CreateHotelServiceRes {
+  Hotel hotel  = 1;
+}
+
+message GetAllHotelsReq {
+  string field = 1;
+  string value = 2;
+  int32  offset = 3;
+  int32  limit = 4;
+}
+
+message GetAllHotelRes {
+  repeated Hotel hotels = 1;
+  int64 count = 2;
+}
+
+message GetHotelsRoomsReq {
+  string  hotel_id = 1;
+  string  field = 2;
+  string  value = 3;
+  int32  offset = 4;
+  int32  limit = 5;
+}
+
+message GetHotelsRoomsRes {
+  repeated Room rooms  = 1;
+  int64  count = 2;
+}
+
+message AddRoomToHotelsReq {
+  string roomType = 1;
+  string pricePerNight = 2;
+  string availability = 3;
+}
+
+message AddRoomToHotelsRes {
+  Room room = 1;
+}
+
+message UpdateHotelReq {
+  string hotel_id = 1;
+  string name = 2;
+  string location = 3;
+  string rating = 4;
+  string address = 5;
+}
+message UpdateHotelRes {
+  Hotel hotel = 1;
+}
+
+message UpdateHotelsRoomReq {
+  string room_id = 1;
+  string hotel_id = 2;
+  string roomType = 3;
+  string pricePerNight = 4;
+  string availability = 5;
+}
+
+message UpdateHotelsRoomRes {
+  Room room = 1;
+}
+
+message  BookingRoomReq {
+  string  hotel_id = 1;
+  string  room_id  = 2;
+  bool    book = 3;
+}
+
+message BookingRoomRes {
+  Room room = 1;
+}
+message DeleteHotelReq {
+  string  hotel_id = 1;
+}
+
+message DeleteHotelRes {
+  string status = 1;
+}
+
+message DeleteHotelRoomsReq {
+  string hotel_id = 1;
+  string room_id = 2;
+}
+
+message DeleteHotelRoomsRes {
+  string  status = 1;
+}
