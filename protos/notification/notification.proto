@@ -6,8 +6,18 @@ service NotificationService{
   rpc CreateNotification(CreateNotificationReq)  returns (EmptyMessage);
   rpc GetNotification(GetNotificationReq) returns(GetNotificationRes);
   rpc AddNotification(AddNotificationReq) returns(EmptyMessage);
+  rpc SendEmailNotification(SendEmailNotificationReq) returns(SendEmailNotificationRes);
 }
 
+
+message SendEmailNotificationReq {
+  string email = 1;
+  string notification = 2;
+}
+
+message SendEmailNotificationRes {
+  bool  successfully = 1;
+}
 
 message Message {
   string created_at = 1;

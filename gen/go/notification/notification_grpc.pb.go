@@ -19,9 +19,10 @@ import (
 const _ = grpc.SupportPackageIsVersion8
 
 const (
-	NotificationService_CreateNotification_FullMethodName = "/NotificationService/CreateNotification"
-	NotificationService_GetNotification_FullMethodName    = "/NotificationService/GetNotification"
-	NotificationService_AddNotification_FullMethodName    = "/NotificationService/AddNotification"
+	NotificationService_CreateNotification_FullMethodName    = "/NotificationService/CreateNotification"
+	NotificationService_GetNotification_FullMethodName       = "/NotificationService/GetNotification"
+	NotificationService_AddNotification_FullMethodName       = "/NotificationService/AddNotification"
+	NotificationService_SendEmailNotification_FullMethodName = "/NotificationService/SendEmailNotification"
 )
 
 // NotificationServiceClient is the client API for NotificationService service.
@@ -31,6 +32,7 @@ type NotificationServiceClient interface {
 	CreateNotification(ctx context.Context, in *CreateNotificationReq, opts ...grpc.CallOption) (*EmptyMessage, error)
 	GetNotification(ctx context.Context, in *GetNotificationReq, opts ...grpc.CallOption) (*GetNotificationRes, error)
 	AddNotification(ctx context.Context, in *AddNotificationReq, opts ...grpc.CallOption) (*EmptyMessage, error)
+	SendEmailNotification(ctx context.Context, in *SendEmailNotificationReq, opts ...grpc.CallOption) (*SendEmailNotificationRes, error)
 }
 
 type notificationServiceClient struct {
@@ -71,6 +73,16 @@ func (c *notificationServiceClient) AddNotification(ctx context.Context, in *Add
 	return out, nil
 }
 
+func (c *notificationServiceClient) SendEmailNotification(ctx context.Context, in *SendEmailNotificationReq, opts ...grpc.CallOption) (*SendEmailNotificationRes, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendEmailNotificationRes)
+	err := c.cc.Invoke(ctx, NotificationService_SendEmailNotification_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NotificationServiceServer is the server API for NotificationService service.
 // All implementations must embed UnimplementedNotificationServiceServer
 // for forward compatibility
@@ -78,6 +90,7 @@ type NotificationServiceServer interface {
 	CreateNotification(context.Context, *CreateNotificationReq) (*EmptyMessage, error)
 	GetNotification(context.Context, *GetNotificationReq) (*GetNotificationRes, error)
 	AddNotification(context.Context, *AddNotificationReq) (*EmptyMessage, error)
+	SendEmailNotification(context.Context, *SendEmailNotificationReq) (*SendEmailNotificationRes, error)
 	mustEmbedUnimplementedNotificationServiceServer()
 }
 
@@ -93,6 +106,9 @@ func (UnimplementedNotificationServiceServer) GetNotification(context.Context, *
 }
 func (UnimplementedNotificationServiceServer) AddNotification(context.Context, *AddNotificationReq) (*EmptyMessage, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddNotification not implemented")
+}
+func (UnimplementedNotificationServiceServer) SendEmailNotification(context.Context, *SendEmailNotificationReq) (*SendEmailNotificationRes, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendEmailNotification not implemented")
 }
 func (UnimplementedNotificationServiceServer) mustEmbedUnimplementedNotificationServiceServer() {}
 
@@ -161,6 +177,24 @@ func _NotificationService_AddNotification_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NotificationService_SendEmailNotification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendEmailNotificationReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NotificationServiceServer).SendEmailNotification(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NotificationService_SendEmailNotification_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NotificationServiceServer).SendEmailNotification(ctx, req.(*SendEmailNotificationReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // NotificationService_ServiceDesc is the grpc.ServiceDesc for NotificationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -179,6 +213,10 @@ var NotificationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AddNotification",
 			Handler:    _NotificationService_AddNotification_Handler,
+		},
+		{
+			MethodName: "SendEmailNotification",
+			Handler:    _NotificationService_SendEmailNotification_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
