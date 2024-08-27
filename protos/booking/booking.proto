@@ -76,7 +76,7 @@ message GetUserTOWaitingGroupReq {
 }
 
 message WaitingGroup {
-  string wait_group_id = 1;
+  string wait_id = 1;
   string user_id = 2;
   string hotel_id = 3;
   string room_type = 4;
