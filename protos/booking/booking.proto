@@ -42,11 +42,12 @@ message GetBookingAllRes {
 }
 
 message UpdateBookingReq {
-  string roomType = 1;
-  string checkInDate = 2;
-  string checkOutDate = 3;
-  string totalAmount = 4;
-  string status = 5;
+  string booking_id  = 1;
+  string roomType = 2;
+  string checkInDate = 3;
+  string checkOutDate = 4;
+  string totalAmount = 5;
+  string status = 6;
 }
 
 message UpdateBookingRes {
