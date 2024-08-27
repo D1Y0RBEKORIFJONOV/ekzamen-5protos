@@ -50,7 +50,7 @@ message UpdateBookingReq {
 }
 
 message UpdateBookingRes {
-  repeated Booking booking = 1;
+  string status = 1;
 }
 
 message DeleteBookingReq {
