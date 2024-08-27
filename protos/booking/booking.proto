@@ -106,6 +106,6 @@ service BookingService {
   rpc UpdateBooking(UpdateBookingReq) returns (UpdateBookingRes);
   rpc DeleteBooking(DeleteBookingReq) returns (DeleteBookingRes);
   rpc AddUserToWaitingGroup(AddUserToWaitingGroupReq) returns (AddUserToWaitingGroupRes);
-  rpc GetUserTOWaitingGroup(GetUserTOWaitingGroupReq) returns (GetUserTOWaitingGroupRes);
+  rpc GetUserTOWaitingGroup(GetUserTOWaitingGroupReq) returns (WaitingGroup);
   rpc GetAllWaitingGroup(GetAllWaitingGroupReq) returns (GetAllWaitingGroupRes);
 }

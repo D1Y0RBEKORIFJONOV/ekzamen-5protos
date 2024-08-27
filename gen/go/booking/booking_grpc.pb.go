@@ -37,7 +37,7 @@ type BookingServiceClient interface {
 	UpdateBooking(ctx context.Context, in *UpdateBookingReq, opts ...grpc.CallOption) (*UpdateBookingRes, error)
 	DeleteBooking(ctx context.Context, in *DeleteBookingReq, opts ...grpc.CallOption) (*DeleteBookingRes, error)
 	AddUserToWaitingGroup(ctx context.Context, in *AddUserToWaitingGroupReq, opts ...grpc.CallOption) (*AddUserToWaitingGroupRes, error)
-	GetUserTOWaitingGroup(ctx context.Context, in *GetUserTOWaitingGroupReq, opts ...grpc.CallOption) (*GetUserTOWaitingGroupRes, error)
+	GetUserTOWaitingGroup(ctx context.Context, in *GetUserTOWaitingGroupReq, opts ...grpc.CallOption) (*WaitingGroup, error)
 	GetAllWaitingGroup(ctx context.Context, in *GetAllWaitingGroupReq, opts ...grpc.CallOption) (*GetAllWaitingGroupRes, error)
 }
 
@@ -99,9 +99,9 @@ func (c *bookingServiceClient) AddUserToWaitingGroup(ctx context.Context, in *Ad
 	return out, nil
 }
 
-func (c *bookingServiceClient) GetUserTOWaitingGroup(ctx context.Context, in *GetUserTOWaitingGroupReq, opts ...grpc.CallOption) (*GetUserTOWaitingGroupRes, error) {
+func (c *bookingServiceClient) GetUserTOWaitingGroup(ctx context.Context, in *GetUserTOWaitingGroupReq, opts ...grpc.CallOption) (*WaitingGroup, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetUserTOWaitingGroupRes)
+	out := new(WaitingGroup)
 	err := c.cc.Invoke(ctx, BookingService_GetUserTOWaitingGroup_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -128,7 +128,7 @@ type BookingServiceServer interface {
 	UpdateBooking(context.Context, *UpdateBookingReq) (*UpdateBookingRes, error)
 	DeleteBooking(context.Context, *DeleteBookingReq) (*DeleteBookingRes, error)
 	AddUserToWaitingGroup(context.Context, *AddUserToWaitingGroupReq) (*AddUserToWaitingGroupRes, error)
-	GetUserTOWaitingGroup(context.Context, *GetUserTOWaitingGroupReq) (*GetUserTOWaitingGroupRes, error)
+	GetUserTOWaitingGroup(context.Context, *GetUserTOWaitingGroupReq) (*WaitingGroup, error)
 	GetAllWaitingGroup(context.Context, *GetAllWaitingGroupReq) (*GetAllWaitingGroupRes, error)
 	mustEmbedUnimplementedBookingServiceServer()
 }
@@ -152,7 +152,7 @@ func (UnimplementedBookingServiceServer) DeleteBooking(context.Context, *DeleteB
 func (UnimplementedBookingServiceServer) AddUserToWaitingGroup(context.Context, *AddUserToWaitingGroupReq) (*AddUserToWaitingGroupRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddUserToWaitingGroup not implemented")
 }
-func (UnimplementedBookingServiceServer) GetUserTOWaitingGroup(context.Context, *GetUserTOWaitingGroupReq) (*GetUserTOWaitingGroupRes, error) {
+func (UnimplementedBookingServiceServer) GetUserTOWaitingGroup(context.Context, *GetUserTOWaitingGroupReq) (*WaitingGroup, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserTOWaitingGroup not implemented")
 }
 func (UnimplementedBookingServiceServer) GetAllWaitingGroup(context.Context, *GetAllWaitingGroupReq) (*GetAllWaitingGroupRes, error) {
