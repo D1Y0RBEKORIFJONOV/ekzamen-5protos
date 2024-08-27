@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+option go_package = "diyorbek.booking.v1;bookingpb";
+
+
+message Booking {
+  string bookingID = 1;
+  string userID = 2;
+  string hotelID = 3;
+  string roomType = 4;
+  string checkInDate = 5;
+  string checkOutDate = 6;
+  string totalAmount = 7;
+  string status = 8;
+}
+
+message CreateBookingReq {
+  string userID = 1;
+  string hotelID = 2;
+  string roomType = 3;
+  string checkInDate = 4;
+  string checkOutDate = 5;
+  string totalAmount = 6;
+}
+
+
+
+message CreateBookingRes {
+  string status = 1;
+}
+
+message GetBookingAllReq {
+  string field = 1;
+  string value = 2;
+  int64 offset = 3;
+  int64 limit = 4;
+}
+
+message GetBookingAllRes {
+  repeated Booking bookings = 1;
+  uint64 count = 2;
+}
+
+message UpdateBookingReq {
+  string roomType = 1;
+  string checkInDate = 2;
+  string checkOutDate = 3;
+  string totalAmount = 4;
+  string status = 5;
+}
+
+message UpdateBookingRes {
+  repeated Booking booking = 1;
+}
+
+message DeleteBookingReq {
+  string booking_id  = 1;
+}
+
+message DeleteBookingRes {
+  string status  = 1;
+}
+
+message AddUserToWaitingGroupReq {
+  string user_id =1;
+  string hotelID = 2;
+  string roomType = 3;
+}
+
+message AddUserToWaitingGroupRes {
+  string status  = 1;
+}
+
+message GetUserTOWaitingGroupReq {
+  string user_id = 1;
+}
+
+message WaitingGroup {
+  string user_id = 1;
+  string hotel_id = 2;
+  string room_type = 3;
+  string time_to_start_waiting = 4;
+}
+
+
+message GetUserTOWaitingGroupRes {
+  WaitingGroup waiting_group = 1;
+}
+
+
+message GetAllWaitingGroupReq {
+  string  field = 1;
+  string  value = 2;
+  int64  offset = 3;
+  int64   limit = 4;
+}
+
+message GetAllWaitingGroupRes {
+  repeated WaitingGroup waiting_groups = 1;
+}
+
+service BookingService {
+  rpc CreateBooking(CreateBookingReq) returns (CreateBookingRes);
+  rpc GetBookingAll(GetBookingAllReq) returns (GetBookingAllRes);
+  rpc UpdateBooking(UpdateBookingReq) returns (UpdateBookingRes);
+  rpc DeleteBooking(DeleteBookingReq) returns (DeleteBookingRes);
+  rpc AddUserToWaitingGroup(AddUserToWaitingGroupReq) returns (AddUserToWaitingGroupRes);
+  rpc GetUserTOWaitingGroup(GetUserTOWaitingGroupReq) returns (GetUserTOWaitingGroupRes);
+  rpc GetAllWaitingGroup(GetAllWaitingGroupReq) returns (GetAllWaitingGroupRes);
+}
