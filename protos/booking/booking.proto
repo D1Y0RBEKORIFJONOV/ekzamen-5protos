@@ -27,6 +27,7 @@ message CreateBookingReq {
 
 message CreateBookingRes {
   string status = 1;
+  bool is_error = 2;
 }
 
 message GetBookingAllReq {
@@ -76,7 +77,7 @@ message GetUserTOWaitingGroupReq {
   string user_id = 1;
 }
 
-message WaitingGroup {
+message   WaitingGroup {
   string wait_id = 1;
   string user_id = 2;
   string hotel_id = 3;
